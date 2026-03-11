@@ -1,0 +1,82 @@
+@import "./Global.css";
+
+main {
+  background-color: #ebedee;
+  height: calc(100vh - 120px);
+}
+
+main .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 55px;
+}
+
+.offer__image {
+  height: 600px;
+}
+
+.offer__panel {
+  width: 400px;
+  padding: 40px;
+  background-color: white;
+}
+
+.offer__price {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.offer__details {
+  padding: 40px 0;
+  border-bottom: #999999 solid 1px;
+}
+
+.offer__detail-item {
+  display: flex;
+}
+
+.offer__detail-label {
+  color: #999999;
+  font-size: 14px;
+  flex: 1;
+}
+
+.offer__detail-value {
+  flex: 1;
+  font-size: 14px;
+}
+
+.offer__name {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.offer__desc {
+  font-size: 18px;
+  color: #666;
+  margin: 16px 0;
+}
+
+.offer__owner {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.offer__owner-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.offer__buy-btn {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  height: 36px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 32px;
+}

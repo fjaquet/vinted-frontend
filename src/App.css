@@ -1,0 +1,39 @@
+@import "../src/assets/css/Global.css";
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  align-items: center;
+}
+
+.header__logo {
+  width: 80px;
+  height: 35px;
+}
+
+.header__actions {
+  display: flex;
+  gap: 70px;
+}
+
+.header__auth {
+  display: flex;
+  gap: 20px;
+}
+
+.header__btn {
+  height: 30px;
+  width: 115px;
+  padding: 0 5px;
+  border: var(--main-color) solid 1px;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--main-color);
+  font-size: 12px;
+}
+
+.header__auth .header__btn {
+  background-color: white;
+  color: var(--main-color);
+}
