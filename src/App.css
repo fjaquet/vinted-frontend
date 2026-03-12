@@ -31,9 +31,16 @@ header .container {
   color: white;
   background-color: var(--main-color);
   font-size: 12px;
+  cursor: pointer;
 }
 
 .header__auth .header__btn {
   background-color: white;
   color: var(--main-color);
+}
+
+.header__auth .disconnect-btn {
+  color: white;
+  background-color: #c2175b;
+  border: none;
 }
