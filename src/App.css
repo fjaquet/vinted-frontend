@@ -12,6 +12,70 @@ header .container {
   height: 35px;
 }
 
+.header__filters-title {
+  position: relative;
+  margin-top: 10px;
+}
+
+.glass {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+#filterTitle {
+  width: 400px;
+  padding-left: 30px;
+  height: 35px;
+}
+
+.header__filters-price {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+.header__filters-price-toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+.header__filters-price-button {
+  width: 40px;
+  height: 20px;
+  margin: 0 10px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+}
+
+.header__filters-price-icon--asc,
+.header__filters-price-icon--desc {
+  border: black solid 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  background-color: white;
+  position: absolute;
+  text-align: center;
+}
+
+.header__filters-price-icon--asc {
+  left: 12px;
+  top: 2px;
+}
+
+.header__filters-price-icon--desc {
+  top: 2px;
+  right: 12px;
+}
+
+.header__price-range {
+  display: flex;
+  width: 200px;
+  align-items: center;
+}
+
 .header__actions {
   display: flex;
   gap: 70px;

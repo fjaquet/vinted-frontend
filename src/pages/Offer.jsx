@@ -30,7 +30,7 @@ const OfferPage = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [VITE_API_fqdn, id]);
 
   return (
     <>

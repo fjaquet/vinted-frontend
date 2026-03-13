@@ -15,7 +15,7 @@ const SignupPage = () => {
   const navigate = useNavigate();
 
   const handleChange = (setValue) => {
-    return async (event) => {
+    return (event) => {
       setValue(event.target.value);
     };
   };
@@ -36,7 +36,11 @@ const SignupPage = () => {
       Cookies.set("token", response.data.token, { expires: 7 });
       navigate("/");
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        console.log(error);
+      }
     }
   };
 
@@ -50,7 +54,7 @@ const SignupPage = () => {
             type="text"
             username="username"
             id="username"
-            placeholder="Nom 'dutilisateur"
+            placeholder="Nom d'utilisateur"
             value={username}
             onChange={handleChange(setUsername)}
           />
