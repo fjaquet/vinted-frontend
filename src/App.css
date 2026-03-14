@@ -33,7 +33,7 @@ header .container {
   display: flex;
   align-items: center;
   font-size: 14px;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .header__filters-price-toggle {
@@ -72,8 +72,12 @@ header .container {
 
 .header__price-range {
   display: flex;
-  width: 200px;
+  width: 250px;
   align-items: center;
+}
+
+.header__price-range-text {
+  width: 90px;
 }
 
 .header__actions {
