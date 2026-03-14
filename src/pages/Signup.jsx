@@ -52,7 +52,7 @@ const SignupPage = () => {
           <input
             className="signup-form__input"
             type="text"
-            username="username"
+            name="username"
             id="username"
             placeholder="Nom d'utilisateur"
             value={username}
@@ -61,7 +61,7 @@ const SignupPage = () => {
           <input
             className="signup-form__input"
             type="email"
-            username="email"
+            name="email"
             id="email"
             placeholder="Email"
             value={email}
@@ -70,7 +70,7 @@ const SignupPage = () => {
           <input
             className="signup-form__input"
             type="password"
-            username="password"
+            name="password"
             id="password"
             placeholder="Mot de passe"
             value={password}
@@ -80,7 +80,7 @@ const SignupPage = () => {
             <input
               className="signup-form__checkbox"
               type="checkbox"
-              username="newsletter"
+              name="newsletter"
               id="newsletter"
               checked={newsletter}
               onChange={(event) => {

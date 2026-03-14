@@ -13,7 +13,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleChange = (setValue) => {
-    return async (event) => {
+    return (event) => {
       setValue(event.target.value);
     };
   };
@@ -44,7 +44,7 @@ const LoginPage = () => {
           <input
             className="signup-form__input"
             type="email"
-            username="Adresse email"
+            name="Adresse email"
             id="email"
             placeholder="Email"
             value={email}
@@ -53,7 +53,7 @@ const LoginPage = () => {
           <input
             className="signup-form__input"
             type="password"
-            username="password"
+            name="password"
             id="password"
             placeholder="Mot de passe"
             value={password}
@@ -62,7 +62,7 @@ const LoginPage = () => {
 
           <button>Se connecter</button>
         </form>
-        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
       </div>
     </main>
   );
