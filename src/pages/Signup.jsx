@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "../assets/css/Signup.css";
+import "../styles/pages/auth.css";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");

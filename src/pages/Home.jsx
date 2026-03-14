@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Offer from "../components/Offer";
-import "../assets/css/Home.css";
+import "../styles/pages/home.css";
 
 const HomePage = ({ filterTitle, ascPrice, prices }) => {
   const [offers, setOffers] = useState([]);

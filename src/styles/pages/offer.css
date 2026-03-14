@@ -1,5 +1,3 @@
-@import "./Global.css";
-
 main {
   background-color: #ebedee;
   height: calc(100vh - 120px);

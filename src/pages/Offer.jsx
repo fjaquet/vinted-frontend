@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import ProductDetails from "../components/ProductDetails";
-import "../assets/css/Offer.css";
+import "../styles/pages/offer.css";
 
 const OfferPage = () => {
   const { id } = useParams();

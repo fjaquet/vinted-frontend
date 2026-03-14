@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { Range } from "react-range";
+import "../styles/components/header.css";
 
 const Header = ({
   filterTitle,
