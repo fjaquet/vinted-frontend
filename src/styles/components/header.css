@@ -22,7 +22,7 @@ header .container {
 }
 
 #filterTitle {
-  width: 400px;
+  width: 100%;
   padding-left: 30px;
   height: 35px;
 }
@@ -109,4 +109,31 @@ header .container {
   color: white;
   background-color: #c2175b;
   border: none;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin: 0 10px;
+  }
+  header .container {
+    flex-direction: column;
+    height: auto;
+    padding: 0 auto;
+  }
+
+  .header__filters-price {
+    font-size: 12px;
+  }
+
+  .header__price-range {
+    width: 220px;
+  }
+
+  .header__actions {
+    gap: 20px;
+  }
+
+  .header__btn {
+    width: 105px;
+  }
 }
