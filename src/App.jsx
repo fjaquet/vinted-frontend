@@ -28,7 +28,7 @@ function App() {
             path="/"
             element={
               <HomePage
-                filterTitle={filterTitle}
+                filterTitle={filterTitle.trim()}
                 ascPrice={ascPrice}
                 prices={prices}
               />
