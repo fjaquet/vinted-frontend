@@ -8,7 +8,15 @@ const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [picture, setPicture] = useState({});
   const [newsletter, setNewsletter] = useState(false);
+
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("username", username);
+  formData.append("password", password);
+  formData.append("picture", picture);
+  formData.append("newsletter", newsletter);
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
 
@@ -26,12 +34,7 @@ const SignupPage = () => {
       const response = await axios({
         method: "post",
         url: `https://${VITE_API_fqdn}/user/signup`,
-        data: {
-          email: email,
-          username: username,
-          password: password,
-          newsletter: newsletter,
-        },
+        data: formData,
       });
       Cookies.set("token", response.data.token, { expires: 7 });
       navigate("/");
@@ -75,6 +78,16 @@ const SignupPage = () => {
             placeholder="Mot de passe"
             value={password}
             onChange={handleChange(setPassword)}
+          />
+          <input
+            className="signup-form__input-file"
+            type="file"
+            name="picture"
+            id="picture"
+            onChange={(event) => {
+              console.log(event.target.files[0]);
+              // setPicture(event.target.files[0]);
+            }}
           />
           <div className="signup-form__newsletter">
             <input
