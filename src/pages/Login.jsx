@@ -3,12 +3,14 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "../styles/pages/auth.css";
+import errorHandler from "../utils/errorHandler";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+  const VITE_API_protocol = import.meta.env.VITE_API_protocol;
 
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ const LoginPage = () => {
     try {
       const response = await axios({
         method: "post",
-        url: `https://${VITE_API_fqdn}/user/login`,
+        url: `${VITE_API_protocol}://${VITE_API_fqdn}/user/login`,
         data: {
           email: email,
           password: password,
@@ -32,7 +34,7 @@ const LoginPage = () => {
       Cookies.set("token", response.data.token, { expires: 7 });
       navigate("/publish");
     } catch (error) {
-      console.log(error);
+      errorHandler(error);
     }
   };
 
