@@ -17,7 +17,16 @@ const Offer = ({ offer }) => {
 
         <p className="offer-card__username">{offer.owner.account.username}</p>
       </div>
-      <img className="offer-card__image" src={offer.product_image.url} alt="" />
+      {offer.product_image ? (
+        <img
+          className="offer-card__image"
+          src={offer.product_image.url}
+          alt=""
+        />
+      ) : (
+        <img className="offer-card__image" src="" alt="" />
+      )}
+
       <div className="offer-card__details">
         <p className="offer-card__price">{offer.product_price} €</p>
         <p className="offer-card__size">

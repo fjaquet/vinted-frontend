@@ -13,13 +13,14 @@ const OfferPage = () => {
   const [isLoading, setIsloading] = useState(true);
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+  const VITE_API_protocol = import.meta.env.VITE_API_protocol;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios({
           method: "get",
-          url: `https://${VITE_API_fqdn}/offer/${id}`,
+          url: `${VITE_API_protocol}://${VITE_API_fqdn}/offer/${id}`,
         });
 
         const newOffer = response.data;
@@ -42,7 +43,7 @@ const OfferPage = () => {
           <div className="container">
             <img
               className="offer__image"
-              src={offer.product_pictures[0].url}
+              src={offer.product_image.url}
               alt="test"
             />
 

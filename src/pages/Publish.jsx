@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "../styles/pages/publish.css";
+import errorHandler from "../utils/errorHandler";
 
 const PublishPage = () => {
   const token = Cookies.get("token");
@@ -29,6 +30,7 @@ const PublishPage = () => {
   formData.append("price", price);
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+  const VITE_API_protocol = import.meta.env.VITE_API_protocol;
 
   const handleChange = (setValue) => {
     return (event) => {
@@ -44,14 +46,23 @@ const PublishPage = () => {
           className="publish__form"
           onSubmit={async (event) => {
             event.preventDefault();
-            await axios({
-              method: "post",
-              url: `https://${VITE_API_fqdn}/offer/publish`,
-              data: formData,
-              headers: {
-                authorization: `Bearer ${token}`,
-              },
-            });
+
+            try {
+              const response = await axios({
+                method: "post",
+                url: `${VITE_API_protocol}://${VITE_API_fqdn}/offer/publish`,
+                data: formData,
+                headers: {
+                  authorization: `Bearer ${token}`,
+                },
+              });
+
+              if (response.status == 201) {
+                alert("Annonce publiee");
+              }
+            } catch (error) {
+              errorHandler(error);
+            }
           }}
         >
           <section className="publish__card publish__card--photo">

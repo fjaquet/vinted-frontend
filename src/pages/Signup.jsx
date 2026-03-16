@@ -3,14 +3,24 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import "../styles/pages/auth.css";
+import errorHandler from "../utils/errorHandler";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [picture, setPicture] = useState({});
   const [newsletter, setNewsletter] = useState(false);
 
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("username", username);
+  formData.append("password", password);
+  formData.append("picture", picture);
+  formData.append("newsletter", newsletter);
+
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+  const VITE_API_protocol = import.meta.env.VITE_API_protocol;
 
   const navigate = useNavigate();
 
@@ -25,22 +35,13 @@ const SignupPage = () => {
     try {
       const response = await axios({
         method: "post",
-        url: `https://${VITE_API_fqdn}/user/signup`,
-        data: {
-          email: email,
-          username: username,
-          password: password,
-          newsletter: newsletter,
-        },
+        url: `${VITE_API_protocol}://${VITE_API_fqdn}/user/signup`,
+        data: formData,
       });
       Cookies.set("token", response.data.token, { expires: 7 });
       navigate("/");
     } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        console.log(error);
-      }
+      errorHandler(error);
     }
   };
 
@@ -75,6 +76,15 @@ const SignupPage = () => {
             placeholder="Mot de passe"
             value={password}
             onChange={handleChange(setPassword)}
+          />
+          <input
+            className="signup-form__input-file"
+            type="file"
+            name="picture"
+            id="picture"
+            onChange={(event) => {
+              setPicture(event.target.files[0]);
+            }}
           />
           <div className="signup-form__newsletter">
             <input

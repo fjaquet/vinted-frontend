@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import Offer from "../components/Offer";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/home.css";
+import errorHandler from "../utils/errorHandler";
 
 const HomePage = ({ filterTitle, ascPrice, prices }) => {
   const [offers, setOffers] = useState([]);
   const [isLoading, setIsloading] = useState(true);
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+  const VITE_API_protocol = import.meta.env.VITE_API_protocol;
 
   const navigate = useNavigate();
 
@@ -27,9 +29,9 @@ const HomePage = ({ filterTitle, ascPrice, prices }) => {
         const maxPrice = prices[1];
 
         if (filterTitle) {
-          queryUrl = `https://${VITE_API_fqdn}/offers?sort=${sort}&title=${filterTitle}&priceMin=${minPrice}&priceMax=${maxPrice}`;
+          queryUrl = `${VITE_API_protocol}://${VITE_API_fqdn}/offers?sort=${sort}&title=${filterTitle}&priceMin=${minPrice}&priceMax=${maxPrice}`;
         } else {
-          queryUrl = `https://${VITE_API_fqdn}/offers?sort=${sort}&priceMin=${minPrice}&priceMax=${maxPrice}`;
+          queryUrl = `${VITE_API_protocol}://${VITE_API_fqdn}/offers?sort=${sort}&priceMin=${minPrice}&priceMax=${maxPrice}`;
         }
         const response = await axios({
           method: "get",
@@ -41,7 +43,7 @@ const HomePage = ({ filterTitle, ascPrice, prices }) => {
         setOffers(newOffers);
         setIsloading(false);
       } catch (error) {
-        console.log(error.message);
+        errorHandler(error);
       }
     };
     fetchData();
