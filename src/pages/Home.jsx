@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Offer from "../components/Offer";
+import { useNavigate } from "react-router-dom";
 import "../styles/pages/home.css";
 
 const HomePage = ({ filterTitle, ascPrice, prices }) => {
@@ -8,6 +9,8 @@ const HomePage = ({ filterTitle, ascPrice, prices }) => {
   const [isLoading, setIsloading] = useState(true);
 
   const VITE_API_fqdn = import.meta.env.VITE_API_fqdn;
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +60,14 @@ const HomePage = ({ filterTitle, ascPrice, prices }) => {
               <p className="home__hero-title">
                 Prêts à faire du tri dans vos placards ?
               </p>
-              <button className="home__hero-button">Commencer à vendre</button>
+              <button
+                className="home__hero-button"
+                onClick={() => {
+                  navigate("/publish");
+                }}
+              >
+                Commencer à vendre
+              </button>
             </div>
           </section>
 

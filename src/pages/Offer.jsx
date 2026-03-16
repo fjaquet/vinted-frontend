@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import ProductDetails from "../components/ProductDetails";
+import defaultAvatar from "../assets/img/default-avatar.png";
 import "../styles/pages/offer.css";
 
 const OfferPage = () => {
@@ -55,11 +56,20 @@ const OfferPage = () => {
               <p className="offer__name">{offer.product_name}</p>
               <p className="offer__desc">{offer.product_description}</p>
               <div className="offer__owner">
-                <img
-                  className="offer__owner-avatar"
-                  src={offer.owner.account.avatar.url}
-                  alt="toto"
-                />
+                {offer.owner.account.avatar ? (
+                  <img
+                    className="offer__owner-avatar"
+                    src={offer.owner.account.avatar.url || defaultAvatar}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="offer__owner-avatar"
+                    src={defaultAvatar}
+                    alt=""
+                  />
+                )}
+
                 <p className="offer__owner-name">
                   {offer.owner.account.username}
                 </p>

@@ -5,11 +5,16 @@ const Offer = ({ offer }) => {
   return (
     <Link to={`offer/${offer._id}`} className="offer-card">
       <div className="offer-card__owner">
-        <img
-          className="offer-card__avatar"
-          src={offer.owner.account.avatar.url || defaultAvatar}
-          alt=""
-        />
+        {offer.owner.account.avatar ? (
+          <img
+            className="offer-card__avatar"
+            src={offer.owner.account.avatar.url || defaultAvatar}
+            alt=""
+          />
+        ) : (
+          <img className="offer-card__avatar" src={defaultAvatar} alt="" />
+        )}
+
         <p className="offer-card__username">{offer.owner.account.username}</p>
       </div>
       <img className="offer-card__image" src={offer.product_image.url} alt="" />

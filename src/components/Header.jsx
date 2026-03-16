@@ -152,7 +152,14 @@ const Header = ({
             </div>
           )}
 
-          <button className="header__btn">Vends tes articles</button>
+          <button
+            className="header__btn"
+            onClick={() => {
+              navigate("/publish");
+            }}
+          >
+            Vends tes articles
+          </button>
         </div>
       </div>
     </header>

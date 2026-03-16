@@ -6,6 +6,7 @@ import OfferPage from "./pages/Offer";
 import Header from "./components/Header";
 import SignupPage from "./pages/Signup";
 import LoginPage from "./pages/Login";
+import PublishPage from "./pages/Publish";
 
 function App() {
   const [filterTitle, setFilterTitle] = useState("");
@@ -37,6 +38,7 @@ function App() {
           <Route path="/offer/:id" element={<OfferPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/publish" element={<PublishPage />} />
         </Routes>
       </Router>
     </>

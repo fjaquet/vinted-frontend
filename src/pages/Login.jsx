@@ -30,7 +30,7 @@ const LoginPage = () => {
         },
       });
       Cookies.set("token", response.data.token, { expires: 7 });
-      navigate("/");
+      navigate("/publish");
     } catch (error) {
       console.log(error);
     }

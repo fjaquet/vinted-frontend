@@ -1,0 +1,47 @@
+.publish {
+  background-color: #ebedee;
+}
+
+.publish__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.publish__file-row {
+  height: 200px;
+  margin: 25px;
+  border: #ebedee 1px dashed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.publish__card {
+  background-color: white;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.publish__row {
+  display: flex;
+  align-items: center;
+}
+
+.publish__label,
+.publish__input,
+.publish__textarea {
+  flex: 1;
+}
+
+.publish__file-input {
+  display: none;
+}
+
+.publish__input,
+.publish__textarea {
+  border: none;
+  border-bottom: #ebedee solid 1px;
+}
+
+/* la suite plus tard */
