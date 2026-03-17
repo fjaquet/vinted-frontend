@@ -8,7 +8,8 @@ import errorHandler from "../utils/errorHandler";
 const PublishPage = () => {
   const token = Cookies.get("token");
 
-  const [picture, setPicture] = useState({});
+  const [picture, setPicture] = useState(null);
+  const [previewPicture, setPreviewPicture] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -67,12 +68,10 @@ const PublishPage = () => {
         >
           <section className="publish__card publish__card--photo">
             <div className="publish__file-row">
-              <label
-                className="publish__file-label publish__label"
-                htmlFor="picture"
-              >
+              <label className="publish__file-label " htmlFor="picture">
                 Ajoute une photo
               </label>
+
               <input
                 className="publish__file-input"
                 type="file"
@@ -80,8 +79,14 @@ const PublishPage = () => {
                 id="picture"
                 onChange={(event) => {
                   setPicture(event.target.files[0]);
+                  const objectUrl = URL.createObjectURL(event.target.files[0]);
+                  setPreviewPicture(objectUrl);
                 }}
               />
+
+              {previewPicture && (
+                <img className="publish__preview-image" src={previewPicture} />
+              )}
             </div>
           </section>
 

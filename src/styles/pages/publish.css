@@ -13,7 +13,13 @@
   border: #ebedee 1px dashed;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+.publish__preview-image {
+  width: 180px;
+  object-fit: cover;
 }
 
 .publish__card {
